@@ -1,0 +1,79 @@
+.leaderboardContainer {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.leaderboardContainer h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #3f51b5;
+}
+
+/* Table base styles */
+.leaderboardTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Header */
+.leaderboardTable thead th {
+  padding: 15px;
+  background-color: #3f51b5;
+  color: #fff;
+  text-align: left;
+  font-weight: 600;
+}
+
+/* Body cells */
+.leaderboardTable th,
+.leaderboardTable td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Zebra striping */
+.leaderboardTable tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+/* Hover state */
+.leaderboardTable tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+/* Sortable header button */
+.sortable {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+}
+
+/* Hover/focus on sortable header */
+.sortable:hover,
+.sortable:focus {
+  color: #ffeb3b;
+  outline: 2px dashed #3f51b5;
+  outline-offset: 4px;
+}
+
+/* Responsive: horizontal scroll on small screens */
+@media (max-width: 600px) {
+  .leaderboardTable {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
