@@ -36,4 +36,4 @@ You need to have [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.c
 
 1. **Clone the repository:**
    ```sh
-   git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+   git clone https://github.com/D-Majumder/React_Quiz
