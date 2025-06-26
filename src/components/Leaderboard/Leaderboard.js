@@ -1,49 +1,37 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo, useContext } from 'react';
+import { QuizContext } from '../../context/QuizContext';
 import styles from './Leaderboard.module.css';
 
 const Leaderboard = () => {
-  const [scores, setScores] = useState([]);
+  const { scoresHistory } = useContext(QuizContext);
   const [sortConfig, setSortConfig] = useState({
     key: 'score',
     direction: 'descending'
   });
 
-  // Load leaderboard from localStorage
-  useEffect(() => {
-    const loaded = JSON.parse(localStorage.getItem('quizLeaderboard')) || [];
-    setScores(loaded);
-  }, []);
-
-  // Sort data based on sortConfig
   const sortedScores = useMemo(() => {
-    const items = [...scores];
+    const items = [...scoresHistory];
     if (sortConfig) {
       items.sort((a, b) => {
         if (a[sortConfig.key] < b[sortConfig.key]) {
           return sortConfig.direction === 'ascending' ? -1 : 1;
         }
-        if (a[sortConfig.key] > b[sortConfig.key]) {
+        if (a[sortConfig.key] > b[sort_config.key]) {
           return sortConfig.direction === 'ascending' ? 1 : -1;
         }
         return 0;
       });
     }
     return items;
-  }, [scores, sortConfig]);
+  }, [scoresHistory, sortConfig]);
 
-  // Handle header click
   const requestSort = (key) => {
-    let direction = 'ascending';
-    if (
-      sortConfig.key === key &&
-      sortConfig.direction === 'ascending'
-    ) {
-      direction = 'descending';
+    let direction = 'descending';
+    if (sortConfig.key === key && sortConfig.direction === 'descending') {
+      direction = 'ascending';
+    } else if (key === 'time' && sortConfig.key !== 'time') {
+      direction = 'ascending';
     }
-    // Set sensible defaults
-    if (key === 'score') direction = 'descending';
-    if (key === 'time') direction = 'ascending';
-
     setSortConfig({ key, direction });
   };
 
@@ -56,7 +44,7 @@ const Leaderboard = () => {
     <div className={styles.leaderboardContainer}>
       <h1>Leaderboard</h1>
 
-      {scores.length > 0 ? (
+      {scoresHistory.length > 0 ? (
         <table className={styles.leaderboardTable}>
           <thead>
             <tr>
@@ -83,7 +71,6 @@ const Leaderboard = () => {
               <th>Date</th>
             </tr>
           </thead>
-
           <tbody>
             {sortedScores.map((entry, idx) => (
               <tr key={`${entry.date}-${idx}`}>

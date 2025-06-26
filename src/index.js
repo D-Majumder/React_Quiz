@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { QuizProvider } from './context/QuizContext';
-import './index.css'; // Global styles
+import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/React_Quiz">
+    <BrowserRouter>
       <QuizProvider>
         <App />
       </QuizProvider>

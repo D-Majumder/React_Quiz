@@ -1,0 +1,91 @@
+.mainFooter {
+  background-color: var(--card-bg-color);
+  color: var(--text-color-light);
+  padding: 2rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  position: relative;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.madeWithLove {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.heartbeatIcon {
+  display: inline-block;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+.socialMedia {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.socialMedia a {
+  color: var(--text-color-light);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.socialMedia a:hover {
+  color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+.footerLinks {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.footerLinks a {
+  color: var(--text-color-light);
+  transition: color 0.2s ease;
+}
+
+.footerLinks a:hover {
+  color: var(--primary-color);
+}
+
+.backToTop {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.8em;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.backToTop:hover {
+  background-color: var(--primary-color-hover);
+  transform: translateY(-3px);
+}

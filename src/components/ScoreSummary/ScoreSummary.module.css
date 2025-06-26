@@ -1,58 +1,67 @@
 .summaryContainer {
     max-width: 600px;
-    margin: 40px auto;
-    padding: 40px;
-    background: #fff;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
     text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    animation: fadeIn 0.8s ease-out;
 }
 
 .trophy {
-    font-size: 4rem;
-    animation: bounce 1s ease-in-out;
+    font-size: 5rem;
+    animation: bounce 1.2s ease-in-out;
 }
 
 .summaryContainer h2 {
-    color: #333;
-    margin: 20px 0;
+    color: var(--text-color);
+    margin: 1.5rem 0;
+    font-size: 2rem;
 }
 
 .motivationalMessage {
-    font-size: 1.2rem;
-    color: #3f51b5;
+    font-size: 1.25rem;
+    color: var(--primary-color);
     font-style: italic;
-    margin-bottom: 30px;
+    font-weight: 500;
+    margin-bottom: 2rem;
 }
 
 .results {
     font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 30px;
+    color: var(--text-color-light);
+    margin-bottom: 2.5rem;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.5rem 0;
 }
 
 .resultItem {
-    margin: 10px 0;
+    margin: 0.8rem 0;
 }
 
 .resultItem span {
-    font-weight: bold;
-    color: #333;
+    font-weight: 700;
+    color: var(--text-color);
 }
 
 .playAgainButton {
-    padding: 15px 30px;
+    padding: 1rem 2rem;
     font-size: 1.1rem;
-    color: #fff;
-    background-color: #28a745;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: var(--primary-color);
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .playAgainButton:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) translateY(-2px);
+    background-color: var(--primary-color-hover);
 }
 
 @keyframes bounce {
@@ -65,4 +74,9 @@
     60% { 
         transform: translateY(-15px);
     }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
 }

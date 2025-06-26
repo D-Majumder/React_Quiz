@@ -3,39 +3,50 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-
 .container {
-    text-align: center;
-    padding: 50px 20px;
-    min-height: calc(100vh - 120px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  text-align: center;
+  padding: 50px 20px;
+  min-height: calc(100vh - var(--navbar-height, 70px) - 100px); /* Account for navbar and footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.8s ease-out;
 }
 
 .container h1 {
-    font-size: 6rem;
-    color: #3f51b5;
-    margin: 0;
+  font-size: 8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0;
+  line-height: 1;
 }
 
 .container h2 {
-    font-size: 2rem;
-    margin: 10px 0;
+  font-size: 2rem;
+  margin: 1rem 0;
+  color: var(--text-color);
+}
+
+.container p {
+  color: var(--text-color-light);
+  font-size: 1.1rem;
 }
 
 .homeLink {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #3f51b5;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+  display: inline-block;
+  margin-top: 2.5rem;
+  padding: 0.8rem 1.6rem;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .homeLink:hover {
   transform: translateY(-3px);
-  transition: transform 0.2s;
+  background-color: var(--primary-color-hover);
 }

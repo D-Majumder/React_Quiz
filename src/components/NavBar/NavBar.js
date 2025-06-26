@@ -1,16 +1,21 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { QuizContext } from '../../context/QuizContext';
 import styles from './NavBar.module.css';
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, setTheme } = useContext(QuizContext);
   const menuRef = useRef();
 
   const toggleMenu = () => {
     setIsMenuOpen(prev => !prev);
   };
+  
+  const handleThemeToggle = () => {
+      setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+  };
 
-  // Close menu on click outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (isMenuOpen && menuRef.current && !menuRef.current.contains(e.target)) {
@@ -70,6 +75,13 @@ const NavBar = () => {
           >
             About
           </NavLink>
+          <button 
+            className={styles.themeToggle} 
+            onClick={handleThemeToggle}
+            aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+          >
+            {theme === 'light' ? '🌙' : '☀️'}
+          </button>
         </nav>
       </div>
     </header>

@@ -6,12 +6,14 @@ import styles from './AddPlayerForm.module.css';
 
 const AddPlayerForm = () => {
   const navigate = useNavigate();
-  const { setPlayer } = useContext(QuizContext);
+  const { player, setPlayer } = useContext(QuizContext);
+
   const [formData, setFormData] = useState({
-    name: '',
-    category: '',
-    difficulty: '',
+    name: player.name || '',
+    category: player.category || '',
+    difficulty: player.difficulty || '',
   });
+  
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const quizCategories = Object.keys(quizData);
@@ -29,11 +31,7 @@ const AddPlayerForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!isButtonDisabled) {
-      // Save to context
       setPlayer(formData);
-      // Save to localStorage
-      localStorage.setItem('quizPlayer', JSON.stringify(formData));
-      // Redirect to quiz start
       navigate('/quiz/start');
     }
   };

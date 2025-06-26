@@ -1,112 +1,148 @@
 .quizContainer {
     max-width: 800px;
-    margin: 20px auto;
-    padding: 30px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    border-radius: 12px;
 }
 
 .loading {
     text-align: center;
     font-size: 1.2rem;
     padding: 50px;
+    color: var(--text-color-light);
 }
 
 .quizHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    color: #555;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color-light);
+}
+
+.timer {
+    font-weight: 700;
+    color: var(--primary-color);
 }
 
 .progressBarContainer {
     width: 100%;
-    height: 10px;
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    margin-bottom: 25px;
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 2rem;
 }
 
 .progressBar {
     height: 100%;
-    background-color: #4caf50;
-    border-radius: 5px;
+    background-color: var(--primary-color);
+    border-radius: 4px;
     transition: width 0.5s ease-in-out;
 }
 
 .question h3 {
-    font-size: 1.5rem;
-    margin-bottom: 25px;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
     text-align: center;
+    line-height: 1.4;
+    color: var(--text-color);
 }
 
 .options {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    gap: 1rem;
 }
 
 .option {
-    padding: 15px;
-    background-color: #f8f9fa;
-    border: 2px solid #ddd;
-    border-radius: 5px;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
     font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
     cursor: pointer;
-    transition: all 0.3s ease;
+    text-align: left;
+    transition: all 0.2s ease;
 }
 
 .option:hover:not(:disabled) {
-    background-color: #e9ecef;
-    border-color: #3f51b5;
+    border-color: var(--primary-color);
+    background-color: color-mix(in srgb, var(--primary-color) 10%, transparent);
+    transform: translateY(-2px);
 }
 
 .option:disabled {
     cursor: not-allowed;
+    opacity: 0.7;
 }
 
 .option.correct {
-    background-color: #d4edda;
-    border-color: #28a745;
-    color: #155724;
+    background-color: var(--correct-answer-bg);
+    border-color: var(--correct-answer-border);
+    color: var(--text-color);
+    font-weight: 700;
 }
 
 .option.incorrect {
-    background-color: #f8d7da;
-    border-color: #dc3545;
-    color: #721c24;
+    background-color: var(--incorrect-answer-bg);
+    border-color: var(--incorrect-answer-border);
+    color: var(--text-color);
+    font-weight: 700;
 }
 
-.option:focus {
-  outline: 2px dashed #3f51b5;
-  outline-offset: 3px;
+.option:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
 }
 
 .navigationButtons {
     display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
+    justify-content: center;
+    margin-top: 2.5rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
 }
 
 .navigationButtons button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #6c757d;
-    color: white;
-    border-radius: 5px;
+    padding: 0.8rem 1.6rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.navigationButtons button:hover:not(:disabled) {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: color-mix(in srgb, var(--primary-color) 10%, transparent);
 }
 
 .navigationButtons button:disabled {
-    background-color: #ccc;
+    background-color: var(--disabled-color);
+    border-color: var(--disabled-color);
+    color: var(--text-color-light);
     cursor: not-allowed;
 }
 
 @media (max-width: 600px) {
     .options {
         grid-template-columns: 1fr;
+    }
+    .quizContainer {
+        padding: 1.5rem;
+    }
+    .question h3 {
+        font-size: 1.4rem;
     }
 }

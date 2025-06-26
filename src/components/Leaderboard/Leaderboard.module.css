@@ -1,54 +1,57 @@
 .leaderboardContainer {
   max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
+  margin: 2rem auto;
+  padding: 1rem;
 }
 
 .leaderboardContainer h1 {
   text-align: center;
-  margin-bottom: 30px;
-  font-size: 2rem;
-  color: #3f51b5;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  font-weight: 700;
 }
 
-/* Table base styles */
 .leaderboardTable {
   width: 100%;
   border-collapse: collapse;
-  background: #fff;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: var(--card-bg-color);
+  box-shadow: var(--card-shadow);
+  border-radius: 12px;
   overflow: hidden;
+  transition: background-color 0.3s ease;
 }
 
-/* Header */
 .leaderboardTable thead th {
-  padding: 15px;
-  background-color: #3f51b5;
-  color: #fff;
+  padding: 1rem 1.5rem;
+  background-color: var(--primary-color);
+  color: #ffffff;
   text-align: left;
   font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-/* Body cells */
 .leaderboardTable th,
 .leaderboardTable td {
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
   font-size: 1rem;
-  color: #333;
+  color: var(--text-color);
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Zebra striping */
 .leaderboardTable tbody tr:nth-child(even) {
-  background-color: #f8f9fa;
+  background-color: color-mix(in srgb, var(--card-bg-color) 95%, var(--background-color));
 }
 
-/* Hover state */
 .leaderboardTable tbody tr:hover {
-  background-color: #e9ecef;
+  background-color: color-mix(in srgb, var(--primary-color) 10%, transparent);
 }
 
-/* Sortable header button */
+.leaderboardTable tbody tr:last-child td {
+    border-bottom: none;
+}
+
 .sortable {
   background: none;
   border: none;
@@ -57,20 +60,25 @@
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
   padding: 0;
+  transition: filter 0.2s ease;
 }
 
-/* Hover/focus on sortable header */
-.sortable:hover,
+.sortable:hover {
+  filter: brightness(1.5);
+}
+
 .sortable:focus {
-  color: #ffeb3b;
-  outline: 2px dashed #3f51b5;
-  outline-offset: 4px;
+    outline: 2px solid #fff;
+    outline-offset: -5px; 
+    border-radius: 4px;
 }
 
-/* Responsive: horizontal scroll on small screens */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .leaderboardContainer h1 {
+    font-size: 2rem;
+  }
   .leaderboardTable {
     display: block;
     overflow-x: auto;
