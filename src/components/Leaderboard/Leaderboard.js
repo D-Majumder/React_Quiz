@@ -16,7 +16,8 @@ const Leaderboard = () => {
         if (a[sortConfig.key] < b[sortConfig.key]) {
           return sortConfig.direction === 'ascending' ? -1 : 1;
         }
-        if (a[sortConfig.key] > b[sort_config.key]) {
+
+        if (a[sortConfig.key] > b[sortConfig.key]) {
           return sortConfig.direction === 'ascending' ? 1 : -1;
         }
         return 0;
@@ -43,7 +44,6 @@ const Leaderboard = () => {
   return (
     <div className={styles.leaderboardContainer}>
       <h1>Leaderboard</h1>
-
       {scoresHistory.length > 0 ? (
         <table className={styles.leaderboardTable}>
           <thead>
